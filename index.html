@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal That Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Lato"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                dark: '#0B201D',    // Darker, richer Forest Green
+                primary: '#2C5545', // Deep Sage
+                secondary: '#5A7F71', // Muted Green
+                accent: '#D4AF37',  // Antique Gold (Metallic feel)
+                light: '#F5F2EA',   // Warm Parchment
+                surface: '#EBE7DE', // Darker Parchment for cards
+                text: '#1F2923',    // Soft Black for text
+              }
+            },
+            backgroundImage: {
+              'nature-texture': "url('https://images.unsplash.com/photo-1466781783310-a2ac7d6dadcf?q=80&w=2560&auto=format&fit=crop')", // Deep green leaves
+              'paper-texture': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E\")",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0B201D;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2C5545;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #D4AF37;
+      }
+      
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      }
+      
+      .text-glow {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-dark text-brand-light antialiased selection:bg-brand-accent selection:text-brand-dark">
+    <!-- Fixed background for depth -->
+    <div class="fixed inset-0 bg-nature-texture bg-cover bg-center opacity-20 pointer-events-none z-0 mix-blend-overlay"></div>
+    <div class="fixed inset-0 bg-brand-dark/90 pointer-events-none z-0"></div>
+    <!-- Grain Texture -->
+    <div class="fixed inset-0 bg-paper-texture pointer-events-none z-[100] mix-blend-multiply"></div>
+    
+    <div id="root" class="relative z-10"></div>
+  </body>
+</html>
